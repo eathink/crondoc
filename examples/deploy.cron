@@ -1,0 +1,14 @@
+# 部署机 crontab 示例
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+
+# 每天凌晨全量备份
+0 3 * * * /usr/local/bin/backup.sh --full
+
+# 每周一上午清理旧日志
+0 9 * * MON /usr/local/bin/cleanup.sh --days 30
+
+# 每 15 分钟同步一次配置
+*/15 * * * * /usr/local/bin/sync-config.sh
+
+@daily /usr/local/bin/rotate.sh

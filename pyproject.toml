@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crondoc"
+version = "0.1.0"
+description = "解析 crontab，翻译成人话并计算下次执行时间"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "eathink" }]
+keywords = ["cron", "crontab", "schedule", "cli", "devops"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+crondoc = "crondoc.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/eathink/crondoc"
+
+[tool.setuptools.packages.find]
+where = ["src"]
